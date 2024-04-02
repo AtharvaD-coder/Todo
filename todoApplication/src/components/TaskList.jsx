@@ -1,9 +1,15 @@
+//This component displays all the existing tasks and is responisble of editing and deleting them aswell
+
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { List, ListItem, Checkbox, Typography, Button } from '@mui/material';
-import { toggleTodo, deleteTodo, updateTodo } from '../redux/todoSlice'; 
-import { createSelector } from '@reduxjs/toolkit';
+import { toggleTodo, deleteTodo, updateTodo } from '../redux/todoSlice';
 import { shallowEqual } from 'react-redux';
+
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
+
 
 
 const selectTodoList = state => state.todos.todo || [];
@@ -12,7 +18,7 @@ const selectTodoList = state => state.todos.todo || [];
 
 const TaskList = () => {
     const todo = useSelector(state => selectTodoList(state), shallowEqual);
-    
+
     const dispatch = useDispatch();
     const [editId, setEditId] = useState(null);
     const [editValue, setEditValue] = useState('');
@@ -41,7 +47,7 @@ const TaskList = () => {
             <List>
                 {todo.map((td) => (
                     <ListItem divider key={td.id}>
-                        <Checkbox style={{ transform: "scale(1.5)" }} checked={td.isDone} onClick={() => handleDone(td.id)} />
+                        <Checkbox style={{ transform: "scale(1.5)", }} checked={td.isDone} onClick={() => handleDone(td.id)} />
                         <Typography style={{ color: td.isDone ? "green" : "" }}>
                             {editId === td.id ? (
                                 <input
@@ -54,10 +60,10 @@ const TaskList = () => {
                                 td.val
                             )}
                         </Typography>
-                        <Button variant='contained' sx={{ marginRight: 3, marginLeft: 2 }} onClick={() => handleEdit(td.id, td.val)}>Edit</Button>
-                        <Button onClick={() => handleDelete(td.id)} color="secondary" variant="contained">Delete</Button>
+                        <Button variant='contained' sx={{ marginRight: 3, marginLeft: 2 }} onClick={() => handleEdit(td.id, td.val)}>Edit <EditIcon /> </Button>
+                        <Button onClick={() => handleDelete(td.id)} color="secondary" variant="contained">Delete <DeleteIcon /> </Button>
                         {editId === td.id && (
-                            <Button variant='contained' sx={{ marginLeft: 3 }} onClick={() => handleSave(td.id)}>Save</Button>
+                            <Button variant='contained' sx={{ marginLeft: 3 }} onClick={() => handleSave(td.id)}>Save <SaveIcon /> </Button>
                         )}
                     </ListItem>
                 ))}
