@@ -1,8 +1,42 @@
-# React + Vite
+# Todo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An application that allows you to add,edit and delete tasks easily and ensures they remain persisstent even after page reload
 
-Currently, two official plugins are available:
+## Functionalities
+- Add new tasks to the list
+- Toggle task completion status to mark tasks as completed without deleting them
+- Delete tasks from the list
+- Update/edit task details
+- persistent storage saves tasks to local storage so they are not lost on page reload
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+ [![My Skills](https://skillicons.dev/icons?i=react,redux,javascript,materialui,tailwind,html)](https://skillicons.dev)
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/AtharvaD-coder/Todo.git
+```
+
+Go to the project directory
+
+```bash
+  cd Todo/todoApplication
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
